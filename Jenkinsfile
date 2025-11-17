@@ -17,7 +17,11 @@ pipeline {
         stage('Run New Container') {
             steps {
                 sh """
-                    docker run -d --name ${backendcont} -p 3000:3000 ${myimage}:latest
+                    # Stop old container if running
+                    docker rm -f ${CONTAINER_NAME} || true
+
+                    # Run new container
+                    docker run -d --name ${CONTAINER_NAME} -p 3000:3000 ${IMAGE_NAME}:latest
                 """
             }
         }
