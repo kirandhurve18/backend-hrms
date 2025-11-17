@@ -9,7 +9,7 @@ pipeline {
     }
 }
 
-stage('Build Docker Image') {
+       stage('Build Docker Image') {
             steps {
                 script {
                     dockerImage = docker.build("${backned}:latest")
