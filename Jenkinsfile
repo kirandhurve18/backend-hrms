@@ -6,3 +6,4 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/kirandhurve18/backend-hrms.git'
             }
         }
+    }
