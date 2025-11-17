@@ -1,5 +1,10 @@
 pipeline {
     agent any
+    environment {
+        IMAGE_NAME = "myimage"
+        CONTAINER_NAME = "backend-container"
+    }
+
     stages {
         stage('pull'){
             steps {
@@ -10,7 +15,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                   docker.build("myimage")
+                   docker.build(IMAGE_NAME)
                 }
             }
         }
