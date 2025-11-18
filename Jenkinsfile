@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('pull'){
             steps {
-                git branch: 'main', credentialsId: '83a7f8e5-ca0f-4be2-bbbe-bc1111ba8577', url: 'https://github.com/kirandhurve18/backend-hrms.git'
+                git branch: 'main', credentialsId: 'git-C', url: 'https://github.com/kirandhurve18/backend-hrms.git'
             }
         }
     
