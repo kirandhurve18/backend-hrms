@@ -42,7 +42,7 @@ pipeline {
             steps{
                 sh """
                     docker rm -f backend-container || true
-                    docker pull kirand18/dockerepo:latest
+                    docker pull kirand18/dockerrepo:latest
                     docker run -d --name backend-container -p 3005:3005 kirand18/dockerrepo:latest
                 """
             }
