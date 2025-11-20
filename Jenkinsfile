@@ -38,17 +38,16 @@ pipeline {
              '''
     }
 }
-        stage('Run New Container') {
-            steps {
+        stage('deploy'){
+            steps{
                 sh """
-                    # Stop old container if running
-                    docker rm -f ${CONTAINER_NAME} || true
-
-                    # Run new container
-                    docker run -d --name ${CONTAINER_NAME} -p 3005:3005 ${IMAGE_NAME}:latest
+                    docker rm -f backend-container || true
+                    docker pull kirand18/dockerepo:latest
+                    docker run -d --name backend-container -p 3005:3005 kirand18/dockerrepo:latest
                 """
             }
         }
+
     
     }
 } 
