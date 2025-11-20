@@ -19,6 +19,25 @@ pipeline {
                 }
             }
         }
+
+        stage('Docker Login') {
+            steps {
+                 withCredentials([string(credentialsId: 'dockerhub-token', variable: 'DOCKERHUB_TOKEN')]) {
+                 sh '''
+                echo "$DOCKERHUB_TOKEN" | docker login -u "${kirand18}" --password-stdin
+               '''
+            }
+        }
+} 
+
+        stage('Push to DockerHub') {
+            steps {
+             sh '''
+             docker tag myimage:latest kirand18/dockerrepo:latest
+             docker push kirand18/dockerrepo:latest
+             '''
+    }
+}
         stage('Run New Container') {
             steps {
                 sh """
