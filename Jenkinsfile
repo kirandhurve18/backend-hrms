@@ -38,15 +38,21 @@ pipeline {
              '''
     }
 }
+
         stage('deploy'){
             steps{
-                sh """
-                    docker rm -f backend-container || true
-                    docker pull kirand18/dockerrepo:latest
-                    docker run -d --name backend-container -p 3005:3005 kirand18/dockerrepo:latest
-                """
+                withCredentials([file(credentialsId: 'gcp-key', variable: 'Google-application-credential')]) {
+    
+                sh '''
+                kubectl apply -f k8s/deployment.yaml
+                kubectl apply -f k8s/service.yaml
+                '''
+                
             }
-        }
+                } 
+
+            }
+        
 
     
     }
