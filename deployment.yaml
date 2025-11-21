@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: backend
-        image: kirand18/dockerepo:latest
+        image: kirand18/dockerrepo:latest
         ports:
         - containerPort: 3005
