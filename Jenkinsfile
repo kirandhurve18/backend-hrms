@@ -9,6 +9,14 @@ pipeline {
                 git branch: 'main', credentialsId: 'git-C', url: 'https://github.com/kirandhurve18/backend-hrms.git'
             }
         }
+
+        stage('Clean') {
+            steps {
+                sh '''
+                  rm -rf node_modules package-lock.json
+                 '''
+                }
+            }
     
         stage('Build') {
             steps { 
