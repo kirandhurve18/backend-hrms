@@ -2,14 +2,14 @@ pipeline {
     agent any
     
     stages {
-        stage('pull'){
+        stage('pull') {
             steps {
                 git branch: 'main', credentialsId: 'git-C', url: 'https://github.com/kirandhurve18/backend-hrms.git'
             }
         }
     }
 
-    stage('Build'){
+        stage('Build') {
             steps { 
                 withCredentials([string(credentialsId: 'dockerhub-token', variable: 'DOCKERHUB_TOKEN')]) {
                 sh '''
@@ -21,11 +21,8 @@ pipeline {
                 '''
                 }                
             }
-        }
-       
-    
-
-        stage('Deploy'){
+        }   
+        stage('Deploy') {
             steps {
                 withCredentials([file(credentialsId: 'gcp-key', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]) {
                 sh '''
