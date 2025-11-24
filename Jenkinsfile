@@ -25,7 +25,7 @@ pipeline {
        
     
 
-        stage('Deploy to Kubernetes') {
+        stage('Deploy') {
             steps {
                 withCredentials([file(credentialsId: 'gcp-key', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]) {
                 sh '''
