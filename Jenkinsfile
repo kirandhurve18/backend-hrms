@@ -7,8 +7,7 @@ pipeline {
                 git branch: 'main', credentialsId: 'git-C', url: 'https://github.com/kirandhurve18/backend-hrms.git'
             }
         }
-    }
-
+    
         stage('Build') {
             steps { 
                 withCredentials([string(credentialsId: 'dockerhub-token', variable: 'DOCKERHUB_TOKEN')]) {
@@ -22,6 +21,7 @@ pipeline {
                 }                
             }
         }   
+       
         stage('Deploy') {
             steps {
                 withCredentials([file(credentialsId: 'gcp-key', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]) {
@@ -37,4 +37,5 @@ pipeline {
 }
         
     }
+}
 
