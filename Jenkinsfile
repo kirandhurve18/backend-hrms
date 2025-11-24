@@ -44,8 +44,8 @@ pipeline {
                 withCredentials([file(credentialsId: 'gcp-key', variable: 'Google-application-credential')]) {
     
                 sh '''
-                kubectl apply -f k8s/deployment.yaml
-                kubectl apply -f k8s/service.yaml
+                kubectl apply -f K8s/deployment.yaml
+                kubectl apply -f K8s/service.yaml
                 '''
                 
             }
