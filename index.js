@@ -8,7 +8,7 @@ const app = express();
 
 const corsOptions = {
   origin: [
-    'http://localhost:4200',
+    'http://136.112.143.174/',
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
