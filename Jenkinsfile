@@ -9,7 +9,7 @@ pipeline {
         }
     }
 
-    stage('Build') {
+    stage('Build'){
             steps { 
                 withCredentials([string(credentialsId: 'dockerhub-token', variable: 'DOCKERHUB_TOKEN')]) {
                 sh '''
@@ -25,7 +25,7 @@ pipeline {
        
     
 
-        stage('Deploy') {
+        stage('Deploy'){
             steps {
                 withCredentials([file(credentialsId: 'gcp-key', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]) {
                 sh '''
