@@ -12,6 +12,7 @@ pipeline {
             steps { 
                 withCredentials([string(credentialsId: 'dockerhub-token', variable: 'DOCKERHUB_TOKEN')]) {
                 sh '''
+                npm install 
                 npm run build
                 docker build -t myimage:latest .
                 echo "$DOCKERHUB_TOKEN" | docker login -u "kirand18" --password-stdin
