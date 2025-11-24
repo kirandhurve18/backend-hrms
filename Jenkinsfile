@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        docker { image 'node:20' } // Node.js environment for build
-    }
+    agent any 
     
     stages {
         stage('pull') {
