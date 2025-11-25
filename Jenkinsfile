@@ -1,6 +1,10 @@
 pipeline {
     agent any 
-    
+
+    triggers {
+        githubPush()
+    }
+  
     stages {
         stage('pull') {
             steps {
