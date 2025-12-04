@@ -8,7 +8,7 @@ const app = express();
 
 const corsOptions = {
   origin: [
-    'http://34.30.21.158//',
+    'http://34.132.125.210//',
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
